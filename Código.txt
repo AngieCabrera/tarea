@@ -1,0 +1,54 @@
+void setup () 
+{
+  size (800, 800);
+  } 
+// VAriables de ejes y velocidad 
+float ballX =0;
+float ballY =0;
+float speedX =1;
+float speedY =2;
+
+void draw()
+{
+ background(100, 200, 50);
+  ellipse (400, 50, 100, 20);
+  stroke (0, 0, 0);
+  fill (154, 189, 218);
+  //cuerpo
+  quad (300, 100, 300, 200, 500, 200, 500, 100);
+  quad (250, 250, 300, 500, 500, 500, 550, 250);
+  quad (320, 500, 320, 600, 380, 600, 380, 500);
+  quad (420, 500, 420, 600, 480, 600, 480, 500);
+  //brazos
+  quad (180, 270, 180, 320, 230, 320, 230, 270);
+  quad (560, 270, 560, 320, 610, 320, 610, 270);
+  quad (180, 340, 180, 500, 210, 500, 230, 340);
+  quad (560, 340, 580, 500, 610, 500, 610, 340);
+  fill (255, 0, 0);
+  quad (350, 120, 350, 140, 450, 120, 450, 140);
+  noStroke ();
+  fill (0, 168, 255);
+  triangle (350, 280, 400, 400, 450, 280);
+  quad (390, 50, 390, 100, 410, 100, 410, 50);
+  fill (255, 255, 0);
+  ellipse (400, 50, 100, 20);
+ 
+  
+  
+   // ordenes para que la bola no pase del aldo inferior x 
+  //en este caso que rebote al final de la pantalla (eje x) 
+  if (ballX < 0 || ballX > width) speedX = -speedX;
+  if (ballY  > height) speedY = -speedY; 
+  else speedY += 1; // este es para que la bola rebote constantemente 
+  // y no tope con el eje x si no que vuelva a caer al eje y 
+
+  ballX += speedX; // variable de velocidad para eje (X) y (Y)
+  ballY += speedY;
+
+  
+  fill (0,0,0);
+  ellipse(ballX, ballY, 50, 50);
+
+
+
+}
